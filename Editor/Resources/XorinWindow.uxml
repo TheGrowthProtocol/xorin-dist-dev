@@ -51,8 +51,10 @@
                         style="flex-direction: row; justify-content: space-between; align-items: center; align-self: stretch;">
                         <ui:Button text="Agent &#x25BE;" name="mode-trigger"
                             class="composer-text-button mode-trigger" />
-                        <ui:Button text="&#x2191;" name="send-button"
-                            class="composer-icon-button send-button" />
+                        <ui:VisualElement name="composer-row-right" class="composer-row-right">
+                            <ui:Button text="&#x2191;" name="send-button"
+                                class="composer-icon-button send-button" />
+                        </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
