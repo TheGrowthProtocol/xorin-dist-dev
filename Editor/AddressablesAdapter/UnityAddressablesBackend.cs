@@ -9,14 +9,13 @@ using UnityEditor.AddressableAssets;
 using UnityEditor.AddressableAssets.Build;
 using UnityEditor.AddressableAssets.Settings;
 using UnityEditor.AddressableAssets.Settings.GroupSchemas;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using Xorin.Editor.Addressables;
-using Xorin.Editor.Tools.Util;
-using Xorin.Editor.Compat;
 using RuntimeAddressables = UnityEngine.AddressableAssets.Addressables;
 
 namespace Xorin.Editor.AddressablesAdapter
@@ -1220,7 +1219,8 @@ namespace Xorin.Editor.AddressablesAdapter
             int checkedCount = 0;
             var scannedObjects = new HashSet<int>();
             var openScenePaths = new HashSet<string>(StringComparer.Ordinal);
-            if (PrefabStageScope.IsActive(out var prefabStage))
+            var prefabStage = PrefabStageUtility.GetCurrentPrefabStage();
+            if (prefabStage != null && prefabStage.prefabContentsRoot != null)
             {
                 foreach (var component in prefabStage.prefabContentsRoot
                     .GetComponentsInChildren<MonoBehaviour>(true))
@@ -1290,7 +1290,7 @@ namespace Xorin.Editor.AddressablesAdapter
             HashSet<int> scannedObjects,
             List<AddressablesValidationFinding> findings)
         {
-            if (owner == null || !scannedObjects.Add(owner.GetInstanceId())) return 0;
+            if (owner == null || !scannedObjects.Add(owner.GetInstanceID())) return 0;
             int checkedCount = 0;
             for (Type type = owner.GetType(); type != null; type = type.BaseType)
             {
