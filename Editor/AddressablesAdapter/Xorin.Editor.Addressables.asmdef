@@ -14,7 +14,8 @@
     "autoReferenced": true,
     "overrideReferences": true,
     "precompiledReferences": [
-        "Newtonsoft.Json.dll"
+        "Newtonsoft.Json.dll",
+        "Xorin.Editor.dll"
     ],
     "defineConstraints": [
         "XORIN_ADDRESSABLES"
