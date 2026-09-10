@@ -1771,12 +1771,21 @@ Button:disabled > .xorin-action-icon {
 }
 
 .plan-step-description {
-    flex-grow: 1;
-    flex-shrink: 1;
-    min-width: 0;
     white-space: normal;
     overflow: hidden;
     color: rgba(217, 217, 217, 1);
+}
+
+.plan-step-details {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+.plan-step-target {
+    margin-top: 2px;
+    font-size: 10px;
+    white-space: normal;
 }
 
 .plan-questions-header {
@@ -3597,6 +3606,27 @@ Button:disabled > .xorin-action-icon {
 
 .plan-resolved-summary {
     padding: 3px 0;
+}
+
+.plan-resolved-answers {
+    margin-top: 2px;
+    padding-left: 10px;
+}
+
+.plan-resolved-answer {
+    margin-top: 5px;
+}
+
+.plan-resolved-answer-question,
+.plan-resolved-answer-value {
+    white-space: normal;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+.plan-resolved-answer-value {
+    margin-top: 1px;
+    color: rgba(217, 217, 217, 1);
 }
 
 .preview-card-resolved .preview-card-thumb-row {
