@@ -3901,6 +3901,28 @@ Button:disabled > .xorin-action-icon {
     min-width: 0;
 }
 
+/* Phase 88 follow-up: objects the changes deleted, beside Keep / Undo. */
+.changelog-deleted-row {
+    align-items: flex-start;
+}
+
+.changelog-deleted {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0;
+    margin: 2px 0 4px 0;
+}
+
+.changelog-deleted-heading {
+    margin: 0 0 1px 0;
+    white-space: normal;
+}
+
+.changelog-deleted-item {
+    margin: 0 0 0 12px;
+    white-space: normal;
+}
+
 .assistant-turn-outcome .changelog-actions-row {
     align-items: flex-start;
 }
