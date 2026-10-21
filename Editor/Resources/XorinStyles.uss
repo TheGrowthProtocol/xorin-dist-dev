@@ -1424,6 +1424,8 @@ Button:disabled > .xorin-action-icon {
 /* ─── Scrollbar ─── */
 #chat-scroll .unity-scroller--vertical {
     width: 8px;
+    margin-top: 2px;
+    margin-bottom: 8px; /* Phase 91i: ends above the composer, not under it */
 }
 
 #chat-scroll .unity-scroller--vertical .unity-slider__dragger {
@@ -2168,16 +2170,6 @@ Button:disabled > .xorin-action-icon {
     margin-left: 8px;
 }
 
-.impact-risk-none {
-    background-color: rgba(100, 180, 100, 0.2);
-    color: rgba(140, 210, 140, 1);
-}
-
-.impact-risk-low {
-    background-color: rgba(100, 180, 100, 0.2);
-    color: rgba(140, 210, 140, 1);
-}
-
 .impact-risk-medium {
     background-color: rgba(230, 179, 51, 0.2);
     color: rgba(255, 210, 100, 1);
@@ -2186,11 +2178,6 @@ Button:disabled > .xorin-action-icon {
 .impact-risk-high {
     background-color: rgba(220, 80, 80, 0.2);
     color: rgba(255, 120, 120, 1);
-}
-
-.impact-risk-unknown {
-    background-color: rgba(128, 128, 128, 0.2);
-    color: rgba(180, 180, 180, 1);
 }
 
 .impact-section {
@@ -2508,21 +2495,29 @@ Button:disabled > .xorin-action-icon {
     padding: 2px 0;
 }
 
-.changelog-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 3px;
-    margin-top: 4px;
-    margin-right: 6px;
+/* Phase 91n: only a failure is marked; a row you can click selects its object. */
+.changelog-row-failed {
+    width: 12px;
+    margin-right: 4px;
     flex-shrink: 0;
+    color: rgba(220, 100, 100, 1);
+    -unity-text-align: upper-center;
 }
 
-.changelog-dot--ok {
-    background-color: rgba(100, 190, 100, 1);
+.changelog-row--selectable:hover {
+    background-color: rgba(255, 255, 255, 0.04);
 }
 
-.changelog-dot--fail {
-    background-color: rgba(200, 80, 80, 1);
+.changelog-section-label {
+    margin-top: 6px;
+    margin-bottom: 1px;
+    color: rgba(155, 165, 180, 1);
+}
+
+.changelog-overview {
+    margin-bottom: 4px;
+    color: rgba(200, 200, 200, 1);
+    white-space: normal;
 }
 
 .changelog-row-content {
@@ -2536,8 +2531,8 @@ Button:disabled > .xorin-action-icon {
 .changelog-desc {
     color: rgba(190, 190, 190, 1);
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    /* Phase 91n: what changed can be long; wrap rather than cut it off. */
+    white-space: normal;
     flex-shrink: 1;
     min-width: 0;
 }
@@ -2800,11 +2795,6 @@ Button:disabled > .xorin-action-icon {
     color: rgba(155, 170, 190, 0.75);
 }
 
-.tool-activity-view-details {
-    flex-shrink: 0;
-    margin-left: 6px;
-}
-
 .tool-activity-issue-summary--warning {
     color: rgba(230, 180, 80, 1);
 }
@@ -2842,7 +2832,8 @@ Button:disabled > .xorin-action-icon {
 }
 
 .current-status-label {
-    flex-grow: 1;
+    /* Phase 91d: keeps the cost and time right after the status. */
+    flex-grow: 0;
     flex-shrink: 1;
     color: rgba(150, 165, 185, 1);
     -unity-font-style: italic;
@@ -2934,6 +2925,63 @@ Button:disabled > .xorin-action-icon {
     flex-shrink: 0;
     margin-left: 4px;
     -unity-text-align: middle-right;
+}
+
+/* Phase 91l: why a step failed, under its row. */
+.tool-row-reason {
+    margin-left: 22px;
+    color: rgba(230, 140, 140, 1);
+    white-space: normal;
+}
+
+.tool-row--fixed .tool-row-reason {
+    color: rgba(150, 150, 150, 1);
+}
+
+.tool-row--fixed .tool-icon-failed {
+    color: rgba(150, 150, 150, 1);
+}
+
+/* Phase 91l: a change you can click to select in Unity. */
+.tool-row--selectable:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Phase 91l: nearby checks folded into one line. */
+.check-fold-row {
+    align-self: stretch;
+    flex-direction: column;
+}
+
+.check-fold-header {
+    flex-direction: row;
+    align-items: center;
+    min-height: 22px;
+}
+
+.check-fold-header .tool-activity-disclosure-icon {
+    width: 18px;
+    -unity-text-align: middle-center;
+}
+
+.check-fold-summary {
+    flex-grow: 1;
+    min-width: 0;
+    height: 22px;
+    margin: 0;
+    padding-left: 0;
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(170, 170, 170, 1);
+    -unity-text-align: middle-left;
+}
+
+.check-fold-summary:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.check-fold-rows {
+    margin-left: 18px;
 }
 
 /* Compact agent-turn limit prompt, inside the normal assistant message. */
@@ -4097,4 +4145,33 @@ Button:disabled > .xorin-action-icon {
     align-self: flex-start;
     margin-top: 4px;
     margin-bottom: 4px;
+}
+
+/* Phase 91d: cost so far and time, after the "Working" status. */
+.current-status-progress {
+    flex-shrink: 0;
+    margin-left: 4px;
+    white-space: nowrap;
+}
+
+/* Phase 91d: "$0.84 · 2m 10s" beside "Xorin" once a request has finished. */
+.assistant-turn-summary {
+    margin-left: 6px;
+    white-space: nowrap;
+    -unity-text-align: middle-left;
+}
+
+/* Phase 91g-a: why a message was not sent, with the fix, above the input. */
+.composer-notice {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 4px 6px 2px 6px;
+}
+
+.composer-notice-text {
+    flex-shrink: 1;
+    white-space: normal;
+    color: rgba(230, 180, 80, 1);
+    margin-right: 6px;
 }
