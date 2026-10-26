@@ -1844,6 +1844,101 @@ Button:disabled > .xorin-action-icon {
     white-space: normal;
 }
 
+/* What an approved step did, when the plan ends: a mark before it, facts under it. */
+.plan-step-mark {
+    width: 16px;
+    flex-shrink: 0;
+    align-self: flex-start;
+    -unity-font-style: bold;
+    -unity-text-align: upper-center;
+}
+
+.plan-step-mark--done,
+.plan-step-mark--checked {
+    color: rgba(74, 222, 128, 1);
+}
+
+.plan-step-mark--partial,
+.plan-step-mark--unclear {
+    color: rgba(230, 180, 80, 1);
+}
+
+.plan-step-mark--not-done {
+    color: rgba(248, 113, 113, 1);
+}
+
+.plan-step-outcome {
+    margin-top: 2px;
+    white-space: normal;
+}
+
+/* Phase 93d: the parts of a request, under the answer or atop a plan's results. */
+.request-parts-checklist {
+    margin: 4px 0 6px 0;
+    padding: 6px 0;
+    border-top-width: 1px;
+    border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.request-parts-header {
+    margin-bottom: 4px;
+    font-size: 11px;
+}
+
+.request-parts-row {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 2px;
+}
+
+.request-parts-body {
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-items: baseline;
+}
+
+.request-parts-mark {
+    width: 16px;
+    flex-shrink: 0;
+    -unity-font-style: bold;
+    -unity-text-align: upper-center;
+}
+
+.request-parts-row--tested > .request-parts-mark {
+    color: rgba(74, 222, 128, 1);
+}
+
+.request-parts-row--done > .request-parts-mark,
+.request-parts-row--open > .request-parts-mark {
+    color: rgba(155, 170, 190, 0.7);
+}
+
+.request-parts-row--not-done > .request-parts-mark {
+    color: rgba(248, 113, 113, 1);
+}
+
+.request-parts-row--done,
+.request-parts-row--open {
+    opacity: 0.75;
+}
+
+.request-parts-text {
+    flex-shrink: 1;
+    margin-right: 6px;
+}
+
+.request-parts-note {
+    flex-shrink: 1;
+    font-size: 11px;
+}
+
+.request-parts-finish-rest {
+    align-self: flex-start;
+    margin-top: 6px;
+}
+
 .plan-questions-header {
     -unity-font-style: bold;
     color: white;
