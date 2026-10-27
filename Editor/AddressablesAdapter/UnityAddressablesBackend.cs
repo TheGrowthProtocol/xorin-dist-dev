@@ -16,6 +16,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using Xorin.Editor.Addressables;
+using Xorin.Editor.Compat;
 using RuntimeAddressables = UnityEngine.AddressableAssets.Addressables;
 
 namespace Xorin.Editor.AddressablesAdapter
@@ -1290,7 +1291,7 @@ namespace Xorin.Editor.AddressablesAdapter
             HashSet<int> scannedObjects,
             List<AddressablesValidationFinding> findings)
         {
-            if (owner == null || !scannedObjects.Add(owner.GetInstanceID())) return 0;
+            if (owner == null || !scannedObjects.Add(UnityObjectCompat.RawInstanceId(owner))) return 0;
             int checkedCount = 0;
             for (Type type = owner.GetType(); type != null; type = type.BaseType)
             {
