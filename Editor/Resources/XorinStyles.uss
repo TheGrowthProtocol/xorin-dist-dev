@@ -34,17 +34,25 @@
 .xorin-standard-text,
 .xorin-standard-control,
 .settings-panel .unity-base-field,
-.settings-panel Button {
+.settings-panel Button,
+.xorin-task-report-root .unity-base-field__input,
+.xorin-task-report-root Button,
+.xorin-task-report-toggle > .unity-toggle__input > .unity-toggle__text,
+.xorin-task-report-toggle .unity-toggle__text,
+.xorin-task-report-toggle .unity-label {
     font-size: 12px;
 }
 
 .xorin-secondary-text,
-.composer-drop-status {
+.composer-drop-status,
+.request-parts-header,
+.request-parts-note {
     font-size: 11px;
 }
 
 .xorin-caption,
-.preview-card-thumb-view {
+.preview-card-thumb-view,
+.plan-step-target {
     font-size: 10px;
 }
 
@@ -302,11 +310,6 @@ Button:disabled > .xorin-action-icon {
     flex-direction: column;
 }
 
-.xorin-task-report-root .unity-base-field__input,
-.xorin-task-report-root Button {
-    font-size: 12px;
-}
-
 .xorin-task-report-title {
     margin-bottom: 10px;
     color: #e6e6e6;
@@ -416,7 +419,6 @@ Button:disabled > .xorin-action-icon {
 .xorin-task-report-toggle > .unity-toggle__input > .unity-toggle__text,
 .xorin-task-report-toggle .unity-toggle__text,
 .xorin-task-report-toggle .unity-label {
-    font-size: 12px;
     color: #d0d0d0;
     white-space: normal;
 }
@@ -847,6 +849,13 @@ Button:disabled > .xorin-action-icon {
 .message-error-action:hover,
 .message-error-action:focus {
     background-color: rgba(255, 255, 255, 0.22);
+}
+
+/* Phase 98c: the request id under an error message. */
+.message-error-id {
+    margin-top: 6px;
+    color: rgba(255, 255, 255, 0.72);
+    white-space: normal;
 }
 
 .message-action-button {
@@ -1840,7 +1849,6 @@ Button:disabled > .xorin-action-icon {
 
 .plan-step-target {
     margin-top: 2px;
-    font-size: 10px;
     white-space: normal;
 }
 
@@ -1882,7 +1890,6 @@ Button:disabled > .xorin-action-icon {
 
 .request-parts-header {
     margin-bottom: 4px;
-    font-size: 11px;
 }
 
 .request-parts-row {
@@ -1931,7 +1938,6 @@ Button:disabled > .xorin-action-icon {
 
 .request-parts-note {
     flex-shrink: 1;
-    font-size: 11px;
 }
 
 .request-parts-finish-rest {
@@ -3089,6 +3095,47 @@ Button:disabled > .xorin-action-icon {
 .iteration-limit-card.iteration-limit-resolved {
     margin: 1px 0;
     padding: 0;
+}
+
+/* Phase 99c: the question before deleting, marked as a warning. */
+.iteration-limit-card.confirm-card {
+    margin: 4px 0;
+    padding: 6px 10px;
+    background-color: rgba(104, 78, 26, 0.24);
+    border-left-width: 3px;
+    border-left-color: rgba(230, 174, 52, 0.95);
+    border-radius: 3px;
+}
+
+.iteration-limit-card.confirm-card.iteration-limit-resolved {
+    padding: 4px 10px;
+    background-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(150, 150, 150, 0.5);
+}
+
+.confirm-item {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 0 2px 8px;
+}
+
+.confirm-item > Label {
+    margin: 0 8px 0 0;
+    padding: 0;
+    white-space: normal;
+}
+
+#confirm-item-where {
+    color: #999;
+}
+
+#confirm-note {
+    margin: 4px 0 0 8px;
+}
+
+.confirm-actions {
+    margin-top: 8px;
 }
 
 .iteration-limit-heading {
