@@ -1127,7 +1127,9 @@ Button:disabled > .xorin-action-icon {
     top: 6px;
     color: #808080;
     -unity-font-style: italic;
-    white-space: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #chat-input {
@@ -3817,12 +3819,48 @@ Button:disabled > .xorin-action-icon {
     flex-shrink: 0;
 }
 
+/* Phase 100d: thumbs up / down, beside Copy. */
+.assistant-turn-rate {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    margin-right: 2px;
+    flex-shrink: 0;
+}
+
+.assistant-turn-rating-reasons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.assistant-turn-rating-reasons > Label {
+    margin-right: 6px;
+}
+
+.assistant-turn-rating-reason {
+    margin: 2px 4px 2px 0;
+    padding: 2px 8px;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.18);
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.assistant-turn-rating-reason:hover {
+    background-color: rgba(168, 199, 250, 0.15);
+}
+
 .assistant-turn-copy:disabled {
     opacity: 0;
 }
 
 .assistant-turn:hover > .assistant-turn-header > .assistant-turn-copy,
 .assistant-turn:hover > .assistant-turn-header > .assistant-turn-report,
+.assistant-turn:hover > .assistant-turn-header > .assistant-turn-rate,
 .message-user:hover > .message-action-button {
     opacity: 1;
 }
@@ -4316,4 +4354,75 @@ Button:disabled > .xorin-action-icon {
     white-space: normal;
     color: rgba(230, 180, 80, 1);
     margin-right: 6px;
+}
+
+/* Phase 101a: the welcome cards of an empty chat, centered in the chat area. */
+.welcome-view {
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 12px;
+}
+
+.welcome-block {
+    width: 100%;
+    max-width: 420px;
+    flex-direction: column;
+}
+
+.welcome-title {
+    -unity-font-style: bold;
+    margin-bottom: 8px;
+}
+
+.welcome-cards {
+    flex-direction: column;
+}
+
+.welcome-card {
+    flex-direction: row;
+    align-items: center;
+    min-height: 30px;
+    margin: 0 0 6px 0;
+    padding: 6px 10px;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: #3a3a3a;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.welcome-card:hover,
+.welcome-card:focus {
+    border-color: #5a5a5a;
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.welcome-card:active {
+    background-color: rgba(255, 255, 255, 0.10);
+}
+
+.welcome-card-text {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-direction: column;
+}
+
+.welcome-card-title,
+.welcome-card-description {
+    white-space: normal;
+    -unity-text-align: middle-left;
+    padding: 0;
+    margin: 0;
+}
+
+.welcome-card-description {
+    margin-top: 2px;
+    opacity: 0.75;
+}
+
+.welcome-hint {
+    white-space: normal;
+    margin-top: 6px;
+    opacity: 0.8;
 }
