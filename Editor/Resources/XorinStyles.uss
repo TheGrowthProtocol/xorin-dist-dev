@@ -4356,6 +4356,11 @@ Button:disabled > .xorin-action-icon {
     margin-right: 6px;
 }
 
+/* News (what's new, an update), not a problem: the plain text color. */
+.composer-notice-text--info {
+    color: var(--unity-colors-default-text);
+}
+
 /* Phase 101a: the welcome cards of an empty chat, centered in the chat area. */
 .welcome-view {
     flex-grow: 1;
