@@ -275,19 +275,80 @@ Button:disabled > .xorin-action-icon {
     height: 28px;
 }
 
-.xorin-info-dialog-root {
+/* Get Pro or add credits (a modal, like Sign In): balance row on the shared
+   surface, the offer, one primary action, a quiet help action. 4 px grid. */
+.xorin-buy-root {
     padding: 16px 20px;
-    justify-content: center;
 }
 
-.xorin-info-dialog-message {
-    flex-grow: 1;
-    white-space: normal;
+/* Nothing shrinks: the window measures the content's real height and
+   grows to it (FitToContent). Shrinking would squash the balance row. */
+.xorin-buy-content,
+.xorin-buy-content > * {
+    flex-shrink: 0;
+}
+
+.xorin-buy-root Label {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.xorin-buy-title {
+    -unity-text-align: middle-center;
+    margin-bottom: 16px;
+}
+
+.xorin-buy-muted {
+    color: #a8a8a8;
+}
+
+.xorin-buy-centered {
     -unity-text-align: middle-center;
 }
 
-.xorin-info-dialog-button {
-    height: 28px;
+.xorin-buy-balance {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+    background-color: #292929;
+    border-width: 1px;
+    border-color: #444;
+    border-radius: 8px;
+}
+
+.xorin-buy-plan {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.xorin-buy-details {
+    white-space: normal;
+    margin-bottom: 16px;
+}
+
+.xorin-buy-primary-button {
+    height: 32px;
+    margin: 0;
+}
+
+.xorin-buy-root .xorin-buy-centered {
+    margin-top: 4px;
+}
+
+.xorin-buy-status {
+    white-space: normal;
+    -unity-text-align: middle-center;
+    margin-top: 8px;
+}
+
+.xorin-buy-help {
+    align-self: center;
+    margin-top: 8px;
 }
 
 /* ─── Task report dialog ─── */
@@ -737,11 +798,13 @@ Button:disabled > .xorin-action-icon {
     color: #a8a8a8;
 }
 
-.header-bar .credit-balance--low {
+.header-bar .credit-balance--low,
+.xorin-buy-balance .credit-balance--low {
     color: #e5b94d;
 }
 
-.header-bar .credit-balance--empty {
+.header-bar .credit-balance--empty,
+.xorin-buy-balance .credit-balance--empty {
     color: #e57373;
 }
 
